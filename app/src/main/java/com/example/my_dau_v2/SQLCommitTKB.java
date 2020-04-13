@@ -15,19 +15,24 @@ public class SQLCommitTKB extends SQLiteOpenHelper {
 
     private static final String KEY_ID = "id";
     private static final String KEY_MASV = "masv";
-    private static final String KEY_MA_MON_HOC = "monhoc";
-    private static final String KEY_MA_GIANG_VIEN = "giangvien";
+    private static final String KEY_MON_HOC = "monhoc";
+    private static final String KEY_GIANG_VIEN = "giangvien";
     private static final String KEY_TIME = "time";
     private static final String KEY_PHONG = "phong";
+    private static final String KEY_NAM_HOC = "namhoc";
+    private static final String KEY_KY_HOC = "kyhoc";
+    private static final String KEY_TUAN_HOC = "tuanhoc";
+    private static final String KEY_THU = "thu";
 
 
     public SQLCommitTKB(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, TABLE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_students_table = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY, %s TEXT, %s TEXT, %s TEXT)", TABLE_NAME, KEY_ID, KEY_MASV,KEY_MA_MON_HOC, KEY_MA_GIANG_VIEN, KEY_TIME, KEY_PHONG);
+//        String create_students_table = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY, %s TEXT, %s TEXT, %s TEXT)", TABLE_NAME, KEY_MASV,KEY_MA_MON_HOC, KEY_MA_GIANG_VIEN, KEY_TIME, KEY_PHONG);
+        String create_students_table = "CREATE TABLE "+ TABLE_NAME + "("+ KEY_MASV +" INTEGER PRIMARY KEY, "+ KEY_MON_HOC +" TEXT, "+ KEY_GIANG_VIEN +" TEXT, "+ KEY_TIME +" TEXT, "+ KEY_PHONG + " TEXT, " + KEY_NAM_HOC + " TEXT, " + KEY_KY_HOC + " TEXT, " + KEY_TUAN_HOC + " TEXT, " + KEY_THU + "TEXT)";
         db.execSQL(create_students_table);
     }
 
@@ -39,26 +44,40 @@ public class SQLCommitTKB extends SQLiteOpenHelper {
     }
 
     public void AddTKB(ThoiKhoaBieu tkb){
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_MASV, tkb.getMasv());
-        values.put(KEY_MA_MON_HOC, tkb.getMamonhoc());
-        values.put(KEY_MA_GIANG_VIEN, tkb.getMagiangvien());
+        values.put(KEY_MON_HOC, tkb.getMonhoc());
+        values.put(KEY_GIANG_VIEN, tkb.getGiangvien());
         values.put(KEY_TIME, tkb.getTime());
         values.put(KEY_PHONG, tkb.getPhong());
+        values.put(KEY_NAM_HOC, tkb.getNamhoc());
+        values.put(KEY_KY_HOC, tkb.getKyhoc());
+        values.put(KEY_TUAN_HOC, tkb.getTuanhoc());
+        values.put(KEY_THU, tkb.getThu());
 
         db.insert(TABLE_NAME, null, values);
-        db.close();
     }
 
-    public ThoiKhoaBieu getTKB(String masv){
-        SQLiteDatabase db = this.getReadableDatabase();
+    public ThoiKhoaBieu getTKB(String masv,String namhoc,String hocky,String tuanhoc){
+        Cursor cursor;
+        SQLiteDatabase db = getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_NAME, null, KEY_MASV + " = ? ",new String [] {masv },null, null, null);
-        if(cursor != null)
+        cursor = db.query(TABLE_NAME, null, KEY_MASV + " = ? " + " AND " + KEY_NAM_HOC + " = ? " + " AND " + KEY_KY_HOC + " = ? " + " AND " + KEY_TUAN_HOC + " = ? ", new String[]{masv, namhoc, hocky, tuanhoc}, null, null, null);
+        if(cursor != null){
             cursor.moveToFirst();
-        ThoiKhoaBieu thoikhoabieu = new ThoiKhoaBieu(cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
-        return thoikhoabieu;
+            ThoiKhoaBieu thoikhoabieu = new ThoiKhoaBieu(cursor.getString(0),cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getString(5),cursor.getString(6),cursor.getString(7),cursor.getString(8));
+            return thoikhoabieu;
+        }
+        return null;
+    }
+
+    public boolean checkEmpty(){
+        SQLiteDatabase db = getWritableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME, null, null,null,null, null, null);
+
+        return (cursor == null);
     }
 }

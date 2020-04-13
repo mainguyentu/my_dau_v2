@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -14,19 +15,22 @@ public class MainActivity_v2 extends AppCompatActivity {
     Button btnttcn,btntkb,btnxd,btndx;
     public final SQLCommitTK sqltk = new SQLCommitTK(this, "schoolsManager", null, 1);
     public final SQLiteCommitSV sqlsv = new SQLiteCommitSV(this, "schoolsManager", null, 1);
-
+    String masinhvien;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_v2);
 
         Anhxa();
-        txtUser.setText(getData());
+        Intent it = getIntent();
+        masinhvien = it.getStringExtra("masv");
+        txtUser.setText(getData(masinhvien));
 
         btnttcn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it1 = new Intent(MainActivity_v2.this,TTCNGV_Activity.class);
+                Intent it1 = new Intent(MainActivity_v2.this,TTCNSV_Activity.class);
+                it1.putExtra("masv",masinhvien);
                 startActivity(it1);
             }
         });
@@ -35,6 +39,7 @@ public class MainActivity_v2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent it2 = new Intent(MainActivity_v2.this,TKB_Activity.class);
+                it2.putExtra("masv",masinhvien);
                 startActivity(it2);
             }
         });
@@ -42,8 +47,10 @@ public class MainActivity_v2 extends AppCompatActivity {
         btnxd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it3 = new Intent(MainActivity_v2.this,TTCNSV_Activity.class);
+                Intent it3 = new Intent(MainActivity_v2.this,XemDiem_Activity.class);
+                it3.putExtra("masv",masinhvien);
                 startActivity(it3);
+
             }
         });
         btndx.setOnClickListener(new View.OnClickListener() {
@@ -64,14 +71,13 @@ public class MainActivity_v2 extends AppCompatActivity {
         btndx = findViewById(R.id.btnDX);
     }
 
-    public String getData(){
-        Intent it = getIntent();
-        Bundle bundle = it.getBundleExtra("data");
-        String str1 = bundle.getString("uid");
-        Taikhoan tk = sqltk.getTaikhoan(str1);
-        String str2 = tk.getMasv();
-        Sinhvien sv = sqlsv.getSinhvien(str2);
+    public String getData(String masv){
+        Sinhvien sv = sqlsv.getSinhvien(masv);
         String name = sv.getTen();
         return name;
     }
+//    public void putData(String masv,Intent it){
+//        it.putExtra("masv",masv);
+//        startActivity(it);
+//    }
 }

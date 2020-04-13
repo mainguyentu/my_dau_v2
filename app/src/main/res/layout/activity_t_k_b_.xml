@@ -211,28 +211,28 @@
                     android:gravity="center"
                     android:text="Thứ 2" />
                 <TextView
-                    android:id="@+id/textView13"
+                    android:id="@+id/txtT2_1"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Môn học"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView14"
+                    android:id="@+id/txtT2_2"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Phòng học"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/txtT2_3"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Thời gian"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/txtT2_4"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
@@ -249,28 +249,28 @@
                     android:gravity="center"
                     android:text="Thứ 3" />
                 <TextView
-                    android:id="@+id/textView17"
+                    android:id="@+id/txtT3_1"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Môn học"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView18"
+                    android:id="@+id/txtT3_2"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Phòng học"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView19"
+                    android:id="@+id/txtT3_3"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Thời gian"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/txtT3_4"
                     android:layout_width="69dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
@@ -287,28 +287,28 @@
                     android:gravity="center"
                     android:text="Thứ 4" />
                 <TextView
-                    android:id="@+id/textView21"
+                    android:id="@+id/txtT4_1"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Môn học"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView22"
+                    android:id="@+id/txtT4_2"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Phòng học"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView23"
+                    android:id="@+id/txtT4_3"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="Thời gian"
                     android:textSize="12dp" />
                 <TextView
-                    android:id="@+id/textView24"
+                    android:id="@+id/txtT4_4"
                     android:layout_width="90dp"
                     android:layout_height="50dp"
                     android:gravity="center_horizontal|center_vertical"

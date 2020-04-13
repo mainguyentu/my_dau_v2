@@ -1,7 +1,7 @@
 package com.example.my_dau_v2;
 
 public class Sinhvien {
-    public Integer id;
+
     public String masv;
     public String ten;
     public String lop;
@@ -15,7 +15,7 @@ public class Sinhvien {
         this.khoa = khoa;
         this.phonenumber = phonenumber;
     }
-
+/*
     public Sinhvien(Integer id, String masv, String ten, String lop, String khoa, int phonenumber) {
         this.id = id;
         this.masv = masv;
@@ -23,15 +23,8 @@ public class Sinhvien {
         this.lop = lop;
         this.khoa = khoa;
         this.phonenumber = phonenumber;
-    }
+    }*/
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getMasv() {
         return masv;

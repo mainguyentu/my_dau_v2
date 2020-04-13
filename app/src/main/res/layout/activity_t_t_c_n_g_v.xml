@@ -132,7 +132,7 @@
             app:layout_constraintRight_toRightOf="@id/ttcngv_layout_v2"></TextView>
 
         <TextView
-            android:id="@+id/namegv_v2"
+            android:id="@+id/txt_namegv_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -145,7 +145,7 @@
             app:layout_constraintLeft_toRightOf="@id/namegv"
             app:layout_constraintTop_toTopOf="@+id/ttcngv_layout_v2"></TextView>
         <TextView
-            android:id="@+id/magv_v2"
+            android:id="@+id/txt_magv_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -157,9 +157,9 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toRightOf="@id/magv"
             app:layout_constraintRight_toRightOf="@id/ttcngv_layout_v2"
-            app:layout_constraintTop_toBottomOf="@+id/namegv_v2"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/txt_namegv_v2"></TextView>
         <TextView
-            android:id="@+id/khoa_v2"
+            android:id="@+id/txt_khoagv_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -171,9 +171,9 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toRightOf="@id/khoa"
             app:layout_constraintRight_toRightOf="@id/ttcngv_layout_v2"
-            app:layout_constraintTop_toBottomOf="@+id/magv_v2"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/txt_magv_v2"></TextView>
         <TextView
-            android:id="@+id/diachi_v2"
+            android:id="@+id/txt_diachi_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -185,9 +185,9 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toRightOf="@id/diachi"
             app:layout_constraintRight_toRightOf="@id/ttcngv_layout_v2"
-            app:layout_constraintTop_toBottomOf="@+id/khoa_v2"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/txt_khoagv_v2"></TextView>
         <TextView
-            android:id="@+id/phonegv_v2"
+            android:id="@+id/txt_phonegv_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -199,7 +199,7 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toRightOf="@id/phonegv"
             app:layout_constraintRight_toRightOf="@id/ttcngv_layout_v2"
-            app:layout_constraintTop_toBottomOf="@+id/diachi_v2"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/txt_diachi_v2"></TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

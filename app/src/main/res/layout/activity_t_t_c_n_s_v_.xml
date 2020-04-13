@@ -36,7 +36,7 @@
             android:src="@android:drawable/ic_menu_camera"></ImageView>
 
         <TextView
-            android:id="@+id/txtuser"
+            android:id="@+id/txt_ttcn_user"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="50dp"
@@ -119,35 +119,23 @@
             app:layout_constraintTop_toBottomOf="@+id/classsv"
             app:layout_constraintLeft_toLeftOf="@id/ttcnsv_layout_v2"
             app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"></TextView>
-        <TextView
-            android:id="@+id/diachisv"
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:text="Địa chỉ:"
-            android:textSize="20sp"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="250dp"
-            android:gravity="center|left"
-            app:layout_constraintTop_toBottomOf="@+id/khoa"
-            app:layout_constraintLeft_toLeftOf="@id/ttcnsv_layout_v2"
-            app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"></TextView>
+
         <TextView
             android:id="@+id/phonesv"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:text="Điện thoại:"
-            android:textSize="20sp"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="250dp"
             android:gravity="center|left"
-            app:layout_constraintTop_toBottomOf="@+id/diachisv"
+            android:text="Điện thoại:"
+            android:textSize="20sp"
             app:layout_constraintLeft_toLeftOf="@id/ttcnsv_layout_v2"
-            app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"></TextView>
+            app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"
+            app:layout_constraintTop_toBottomOf="@+id/khoa"></TextView>
 
         <TextView
-            android:id="@+id/namesv_v2"
+            android:id="@+id/txt_namesv_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -161,22 +149,22 @@
             app:layout_constraintLeft_toRightOf="@id/namesv"
             app:layout_constraintTop_toTopOf="@+id/ttcnsv_layout_v2"></TextView>
         <TextView
-            android:id="@+id/masv_v2"
+            android:id="@+id/txt_masv_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="60dp"
-            android:hint="mã giảng viên"
+            android:hint="mã sinh viên"
             android:gravity="center|left"
             android:textSize="20sp"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toRightOf="@id/masv"
             app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"
-            app:layout_constraintTop_toBottomOf="@+id/namesv_v2"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/txt_namesv_v2"></TextView>
 
         <TextView
-            android:id="@+id/classsv_v2"
+            android:id="@+id/txt_classsv_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -188,10 +176,10 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"
             app:layout_constraintLeft_toRightOf="@id/classsv"
-            app:layout_constraintTop_toBottomOf="@+id/masv_v2"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/txt_masv_v2"></TextView>
 
         <TextView
-            android:id="@+id/khoa_v2"
+            android:id="@+id/txt_khoa_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
@@ -203,35 +191,22 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toRightOf="@id/khoa"
             app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"
-            app:layout_constraintTop_toBottomOf="@+id/classsv_v2"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/txt_classsv_v2"></TextView>
+
         <TextView
-            android:id="@+id/diachisv_v2"
+            android:id="@+id/txt_phonesv_v2"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="20dp"
             android:layout_marginRight="60dp"
-            android:hint="địa chỉ"
             android:gravity="center|left"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintLeft_toRightOf="@id/diachisv"
-            app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"
-            app:layout_constraintTop_toBottomOf="@+id/khoa_v2"></TextView>
-        <TextView
-            android:id="@+id/phonesv_v2"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="60dp"
             android:hint="số điện thoại"
-            android:gravity="center|left"
             android:textSize="20sp"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintLeft_toRightOf="@id/phonesv"
             app:layout_constraintRight_toRightOf="@id/ttcnsv_layout_v2"
-            app:layout_constraintTop_toBottomOf="@+id/diachisv_v2"></TextView>
+            app:layout_constraintTop_toBottomOf="@+id/txt_khoa_v2"></TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

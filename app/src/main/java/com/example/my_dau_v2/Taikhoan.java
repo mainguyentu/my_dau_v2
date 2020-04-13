@@ -1,7 +1,6 @@
 package com.example.my_dau_v2;
 
 public class Taikhoan {
-    public Integer id;
     public String user;
     public String password;
     public String masv;
@@ -17,11 +16,6 @@ public class Taikhoan {
         this.masv = masv;
     }
 
-    public Taikhoan(Integer id, String user, String password) {
-        this.id = id;
-        this.user = user;
-        this.password = password;
-    }
 
     public String getUser() {
         return user;
@@ -37,14 +31,6 @@ public class Taikhoan {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getMasv() {

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -26,7 +27,7 @@ public class SQLiteCommitSV extends SQLiteOpenHelper {
 
 
     public SQLiteCommitSV(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        super(context, TABLE_NAME, null, DATABASE_VERSION);
     }
 
 //    //truy vấn ko trả kết quả
@@ -44,9 +45,10 @@ public class SQLiteCommitSV extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String create_students_table = String.format("CREATE TABLE %s(%s INTEGER PRIMARY KEY, %s TEXT, %s TEXT, %s TEXT)", TABLE_NAME, KEY_ID, KEY_MASV, KEY_NAME, KEY_LOP, KEY_KHOA, KEY_PHONE_NUMBER);
+//        String create_students_table = String.format("CREATE TABLE %s ( %s TEXT PRIMARY KEY, %s TEXT, %s TEXT, % TEXT, % INTEGER)", TABLE_NAME, KEY_MASV, KEY_NAME, KEY_LOP, KEY_KHOA, KEY_PHONE_NUMBER);
+        String create_students_table = "CREATE TABLE " + TABLE_NAME + " ( "  + KEY_MASV  + " TEXT PRIMARY KEY, " + KEY_NAME + " TEXT, " + KEY_LOP +" TEXT, "+ KEY_KHOA +" TEXT, " + KEY_PHONE_NUMBER + " INTEGER)";
         db.execSQL(create_students_table);
-    }
+    }//CREATE TABLE %s(%s TEXT PRIMARY KEY, %s TEXT, %s TEXT, % TEXT, % INTEGER)
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -56,7 +58,7 @@ public class SQLiteCommitSV extends SQLiteOpenHelper {
     }
 
     public void Addsinhvien(Sinhvien sinhvien){
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = getWritableDatabase();
 
         ContentValues values = new ContentValues();
         values.put(KEY_MASV,sinhvien.getMasv());
@@ -66,29 +68,32 @@ public class SQLiteCommitSV extends SQLiteOpenHelper {
         values.put(KEY_PHONE_NUMBER, sinhvien.getPhonenumber());
 
         db.insert(TABLE_NAME, null, values);
-        db.close();
+
     }
 
     public Sinhvien getSinhvien(String masv){
-        SQLiteDatabase db = this.getReadableDatabase();
+        SQLiteDatabase db = getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME, null, KEY_MASV + " = ? ",new String [] {masv },null, null, null);
-        if(cursor != null)
+        if(cursor != null){
             cursor.moveToFirst();
-        Sinhvien sinhvien = new Sinhvien(cursor.getString(1),cursor.getString(2),cursor.getString(3),cursor.getString(4),cursor.getInt(5));
-        return sinhvien;
+            Sinhvien student = new Sinhvien(cursor.getString(0), cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getInt(4));
+            return student;
+        }
+        return null;
     }
 
     public List<Sinhvien> getAllSV() {
         List<Sinhvien>  studentList = new ArrayList<>();
-        String query = "SELECT * FROM" + TABLE_NAME;
+//        String query = "SELECT * FROM" + TABLE_NAME;
 
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(query, null);
+        SQLiteDatabase db = getReadableDatabase();
+//        Cursor cursor = db.rawQuery(query, null);
+        Cursor cursor = db.query(TABLE_NAME,null,null,null,null,null,null);
         cursor.moveToFirst();
 
         while(cursor.isAfterLast() == false) {
-            Sinhvien student = new Sinhvien(cursor.getString(1), cursor.getString(2), cursor.getString(3),cursor.getString(4),cursor.getInt(5));
+            Sinhvien student = new Sinhvien(cursor.getString(0), cursor.getString(1), cursor.getString(2),cursor.getString(3),cursor.getInt(4));
             studentList.add(student);
             cursor.moveToNext();
         }
@@ -105,6 +110,6 @@ public class SQLiteCommitSV extends SQLiteOpenHelper {
         values.put(KEY_PHONE_NUMBER, sv.getPhonenumber());
 
         db.update(TABLE_NAME, values, KEY_MASV + " = ?", new String[] { sv.getMasv() });
-        db.close();
+
     }
 }

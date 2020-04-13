@@ -1,58 +1,26 @@
 package com.example.my_dau_v2;
 
 public class ThoiKhoaBieu {
-    public Integer id;
     public String masv;
-    public String mamonhoc;
-    public String magiangvien;
+    public String monhoc;
+    public String giangvien;
     public String time;
     public String phong;
+    public String namhoc;
+    public String kyhoc;
+    public String tuanhoc;
+    public String thu;
 
-    public ThoiKhoaBieu(Integer id, String mamonhoc, String magiangvien, String time, String phong) {
-        this.id = id;
-        this.mamonhoc = mamonhoc;
-        this.magiangvien = magiangvien;
-        this.time = time;
-        this.phong = phong;
-    }
-
-    public ThoiKhoaBieu(String masv, String mamonhoc, String magiangvien, String time, String phong) {
+    public ThoiKhoaBieu(String masv, String monhoc, String giangvien, String time, String phong, String namhoc, String kyhoc, String tuanhoc, String thu) {
         this.masv = masv;
-        this.mamonhoc = mamonhoc;
-        this.magiangvien = magiangvien;
+        this.monhoc = monhoc;
+        this.giangvien = giangvien;
         this.time = time;
         this.phong = phong;
-    }
-
-    public ThoiKhoaBieu(String mamonhoc, String magiangvien, String time, String phong) {
-        this.mamonhoc = mamonhoc;
-        this.magiangvien = magiangvien;
-        this.time = time;
-        this.phong = phong;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getMamonhoc() {
-        return mamonhoc;
-    }
-
-    public void setMamonhoc(String mamonhoc) {
-        this.mamonhoc = mamonhoc;
-    }
-
-    public String getMagiangvien() {
-        return magiangvien;
-    }
-
-    public void setMagiangvien(String magiangvien) {
-        this.magiangvien = magiangvien;
+        this.namhoc = namhoc;
+        this.kyhoc = kyhoc;
+        this.tuanhoc = tuanhoc;
+        this.thu = thu;
     }
 
     public String getTime() {
@@ -77,5 +45,53 @@ public class ThoiKhoaBieu {
 
     public void setPhong(String phong) {
         this.phong = phong;
+    }
+
+    public String getMonhoc() {
+        return monhoc;
+    }
+
+    public void setMonhoc(String monhoc) {
+        this.monhoc = monhoc;
+    }
+
+    public String getGiangvien() {
+        return giangvien;
+    }
+
+    public void setGiangvien(String giangvien) {
+        this.giangvien = giangvien;
+    }
+
+    public String getNamhoc() {
+        return namhoc;
+    }
+
+    public void setNamhoc(String namhoc) {
+        this.namhoc = namhoc;
+    }
+
+    public String getKyhoc() {
+        return kyhoc;
+    }
+
+    public void setKyhoc(String kyhoc) {
+        this.kyhoc = kyhoc;
+    }
+
+    public String getTuanhoc() {
+        return tuanhoc;
+    }
+
+    public void setTuanhoc(String tuanhoc) {
+        this.tuanhoc = tuanhoc;
+    }
+
+    public String getThu() {
+        return thu;
+    }
+
+    public void setThu(String thu) {
+        this.thu = thu;
     }
 }

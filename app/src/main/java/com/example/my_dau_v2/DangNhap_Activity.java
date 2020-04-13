@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +14,6 @@ public class DangNhap_Activity extends AppCompatActivity {
 
     EditText txtID,txtPass;
     Button btnAccepct;
-    String id,pass;
     public final SQLCommitTK sqltk = new SQLCommitTK(this, "schoolsManager", null, 1);
 
     @Override
@@ -22,8 +22,6 @@ public class DangNhap_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_dang_nhap_);
 
         Anhxa();
-//        id=txtID.getText().toString();
-//        pass=txtPass.getText().toString();
 
         btnAccepct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,11 +35,9 @@ public class DangNhap_Activity extends AppCompatActivity {
         txtPass = findViewById(R.id.txtPass);
         btnAccepct = findViewById(R.id.btnAccepct);
     }
-    public void putData(){
+    public void putData(String masv){
         Intent it = new Intent(DangNhap_Activity.this, MainActivity_v2.class);
-        Bundle bundle = new Bundle();
-        bundle.putString("uid",id);
-        it.putExtra("data",bundle);
+        it.putExtra("masv",masv);
         startActivity(it);
     }
     public void Checked(){
@@ -49,7 +45,7 @@ public class DangNhap_Activity extends AppCompatActivity {
             Toast.makeText(DangNhap_Activity.this, "Bạn cần nhập đầy đủ thông tin đăng nhập !", Toast.LENGTH_SHORT).show();
         }else{
            if(CheckUser() && CheckPass()){
-               putData();
+               putData(txtID.getText().toString()); // id is masv
                Toast.makeText(DangNhap_Activity.this, "Bạn đã đăng nhập thành công !", Toast.LENGTH_SHORT).show();
            }else{
                Toast.makeText(this, "Bạn đã nhập sai Tài khoản hoặc Mật khẩu !", Toast.LENGTH_SHORT).show();
